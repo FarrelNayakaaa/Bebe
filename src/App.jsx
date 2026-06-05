@@ -42,7 +42,7 @@ function App() {
             <span className="premium-tag">CHAPTER I</span>
             <h1 className="premium-title">Week 1 Accomplished</h1>
             <p className="premium-subtitle">
-              Satu tahap terlewati dengan indah. Mari buka apresiasi kecil yang sudah dipersiapkan khusus untukmu.
+              Effort need to be appreciate, especially you, love.
             </p>
             <button className="premium-btn" onClick={handleUnveil}>
               <span>UNVEIL NOW</span>
