@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.premium-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0F0406; /* Gelap Eksklusif */
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  color: #F5E6E8;
+}
+
+.scene {
+  width: 100%; height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* --- AMBIENT LUXURY BACKGROUND --- */
+.ambient-bg {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  background: linear-gradient(180deg, #140508 0%, #0A0203 100%);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.25;
+}
+
+.orb-1 {
+  width: 400px; height: 400px;
+  background: #4A0E17;
+  top: -10%; left: -10%;
+}
+
+.orb-2 {
+  width: 500px; height: 500px;
+  background: #3A2226;
+  bottom: -10%; right: -10%;
+}
+
+/* --- SCENE 1: THE VELVET VEIL --- */
+.velvet-panel {
+  position: absolute;
+  top: 0; width: 50%; height: 100%;
+  background: #1A0508;
+  border-image: linear-gradient(to bottom, #D4AF37, #3A2226) 1;
+  z-index: 10;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.panel-left { left: 0; border-right: 1px solid rgba(212, 175, 55, 0.2); }
+.panel-right { right: 0; border-left: 1px solid rgba(212, 175, 55, 0.2); }
+
+/* Animasi Tirai Geser Keluar */
+.veil-dismissed .panel-left { transform: translateX(-100%); }
+.veil-dismissed .panel-right { transform: translateX(100%); }
+.veil-dismissed .luxury-intro-card { opacity: 0; transform: translateY(-20px); }
+
+.luxury-intro-card {
+  position: relative;
+  z-index: 15;
+  text-align: center;
+  max-width: 420px;
+  padding: 40px 30px;
+  background: rgba(26, 5, 8, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  transition: all 0.8s ease;
+}
+
+.premium-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #D4AF37;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.premium-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #F5E6E8;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.premium-subtitle {
+  font-size: 0.9rem;
+  color: #A39294;
+  margin-top: 15px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.premium-btn {
+  background: transparent;
+  border: 1px solid #D4AF37;
+  padding: 14px 35px;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.premium-btn span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #D4AF37;
+  transition: color 0.4s ease;
+}
+
+.premium-btn:hover {
+  background: #D4AF37;
+}
+
+.premium-btn:hover span {
+  color: #1A0508;
+}
+
+/* --- SCENE 2: MINIMALIST BOX SCENE --- */
+.gift-scene { z-index: 5; }
+
+.gift-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gift-fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.gift-hint {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #B76E79;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.premium-box-css {
+  position: relative;
+  width: 140px; height: 140px;
+  animation: softFloat 3s infinite alternate ease-in-out;
+}
+
+.svg-box {
+  width: 100%; height: 100%;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+
+.premium-box-shadow {
+  width: 100px; height: 10px;
+  background: rgba(0,0,0,0.4);
+  filter: blur(6px);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -20px; left: 50%;
+  transform: translateX(-50%);
+  animation: shadowPulse 3s infinite alternate ease-in-out;
+}
+
+/* --- SCENE 3: EXCLUSIVE REVEAL FINAL --- */
+.reveal-scene-final { z-index: 6; }
+
+.reveal-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Exclusive BCA Credit Card Look-alike */
+.exclusive-bca-card {
+  width: 330px; height: 200px;
+  background: linear-gradient(135deg, rgba(42, 14, 19, 0.9) 0%, rgba(15, 4, 6, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 40px 70px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-shimmer {
+  position: absolute;
+  top: -150%; left: -150%;
+  width: 400%; height: 400%;
+  background: linear-gradient(45deg, transparent 45%, rgba(212, 175, 55, 0.15) 50%, transparent 55%);
+  transform: rotate(25deg);
+  animation: refinedShine 6s infinite linear;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: center; }
+.card-type { font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; color: #D4AF37; }
+.card-emv-chip { 
+  width: 38px; height: 26px; 
+  background: linear-gradient(135deg, #e5c158 0%, #b89329 100%); 
+  border-radius: 4px;
+  opacity: 0.85;
+}
+
+.balance-label { font-size: 0.6rem; letter-spacing: 1.5px; color: #8A7376; }
+.balance-amount {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #F5E6E8;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.card-footer { display: flex; justify-content: space-between; }
+.card-footer .label { font-size: 0.55rem; color: #6E5659; letter-spacing: 1px; display: block; margin-bottom: 2px;}
+.card-footer .value { font-size: 0.75rem; font-weight: 500; color: #D4AF37; letter-spacing: 0.5px; }
+
+/* Elegant Message Under Card */
+.elegant-message {
+  text-align: center;
+  max-width: 340px;
+}
+
+.elegant-message h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #F5E6E8;
+  font-weight: 400;
+}
+
+.elegant-message p {
+  font-size: 0.85rem;
+  color: #A39294;
+  line-height: 1.6;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* --- LUXURY ANIMATIONS --- */
+@keyframes softFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+@keyframes shadowPulse {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.4; }
+  100% { transform: translateX(-50%) scale(0.8); opacity: 0.2; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes refinedShine {
+  0% { left: -200%; }
+  100% { left: 200%; }
+}
+
+/* Subtle Petal Drop Effect */
+.petal-rain {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  pointer-events: none;
+}
+.petal {
+  position: absolute;
+  background: #4A0E17;
+  border-radius: 150px 0 150px 150px;
+  opacity: 0.3;
+  animation: fall 5s infinite linear;
+}
+.petal:nth-child(1) { width: 10px; height: 10px; left: 20%; animation-delay: 0s; }
+.petal:nth-child(2) { width: 14px; height: 14px; left: 50%; animation-delay: 1.5s; }
+.petal:nth-child(3) { width: 8px; height: 8px; left: 80%; animation-delay: 3s; }
+
+@keyframes fall {
+  0% { top: -5%; transform: translateX(0) rotate(0deg); }
+  100% { top: 105%; transform: translateX(50px) rotate(360deg); }
+}
